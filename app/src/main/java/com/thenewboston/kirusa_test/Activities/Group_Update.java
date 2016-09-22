@@ -30,6 +30,7 @@ public class Group_Update extends AppCompatActivity {
     EditText phone;
     Button add,delete;
     JSONObject update_params = new JSONObject();
+    JSONObject delete_params = new JSONObject();
     String group_name,group_id;
     VolleySingleton volleySingleton;
     RequestQueue requestQueue ;
@@ -48,7 +49,7 @@ public class Group_Update extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                   delete_group();
             }
         });
         add.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +61,71 @@ public class Group_Update extends AppCompatActivity {
                     update_group();
             }
         });
+    }
+    public void delete_group(){
+        try{
+            delete_params.put("app_secure_key","b2ff398f8db492c19ef89b548b04889c");
+            delete_params.put("client_app_ver","iv.02.09.000");
+            delete_params.put("client_os","a");
+            delete_params.put("client_os_ver","6.0");
+            delete_params.put("cmd","update_group");
+            delete_params.put("iv_user_id",iv_user_id());
+            delete_params.put("user_secure_key",user_secure_key());
+            delete_params.put("group_id",group_id);
+            delete_params.put("group_operation","d");
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        String URL = "https://devblogs.instavoice.com/iv?data="+delete_params.toString();
+        Log.e("ADARSH",URL);
+        Map<String, String> params= new HashMap<String, String>();
+        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST,URL,new JSONObject(params),
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //Toast.makeText(sign_in_activity.this,response.toString(),Toast.LENGTH_LONG).show();
+                        if(!response.toString().isEmpty())
+                            parseJsonDeleteGroup(response.toString());
+                        else
+                            Toast.makeText(Group_Update.this,"Wrong Input",Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //Showing toast
+                        Toast.makeText(Group_Update.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                        Log.e("Error", volleyError.toString());
+                    }
+                }) {
+
+            /**
+             * Passing some request headers
+             */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+    public void parseJsonDeleteGroup(String response){
+        Toast.makeText(this,response,Toast.LENGTH_LONG).show();
+        Log.e("ADARSH",response);
+        try{
+            JSONObject res = new JSONObject(response);
+            if(res.getString("status").equals("ok")){
+                Toast.makeText(this,"Group Deleted",Toast.LENGTH_SHORT).show();
+            }
+            else
+                Toast.makeText(this,"Couldn't Delete Group",Toast.LENGTH_LONG).show();
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
     public void update_group(){
         try{
