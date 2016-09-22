@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add__group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.thenewboston.kirusa_test.Activities.Add_Group"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:id="@+id/group_activity_group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Group's Name"
+            android:layout_centerHorizontal="true"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/all_phone"
+            android:layout_below="@+id/group_activity_group_name"
+            android:hint="All Phone Numbers"
+            android:layout_centerInParent="true"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="Create Group"
+            android:textColor="#fff"
+            android:id="@+id/add_group_button"
+            android:layout_below="@+id/all_phone"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="12dp"
+            android:onClick="submit_add_group"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
