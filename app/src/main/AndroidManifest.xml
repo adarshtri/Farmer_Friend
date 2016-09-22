@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.FirstActivity" />
-        <activity android:name=".Activities.Add_Group"></activity>
+        <activity android:name=".Activities.Add_Group" />
+        <activity android:name=".Activities.Group_Update"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,54 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.thenewboston.kirusa_test.Fragments.Officer">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Message"
+            android:id="@+id/message_box"
+            android:layout_below="@+id/buttonandgroup"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonandgroup">
+            <EditText
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:hint="Group_id"
+                android:id="@+id/message_group_id"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/message_group_id"
+                android:id="@+id/send_button"/>
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="20dp"
+            android:id="@+id/message_farmers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_below="@id/message_box"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refresh"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="refresh_group_farmer"
+            android:id="@+id/refresh_message"/>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <EditText
-            android:id="@+id/group_activity_group_name"
+            android:id="@+id/update_group_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Enter Group's Name"
+            android:hint="Enter phone number to add"
             android:layout_centerHorizontal="true"
             android:textColorHint="#fff"
             android:textColor="#fff"
@@ -25,14 +25,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:text="Create Group"
+            android:text="Add Phone to Group"
             android:textColor="#fff"
-            android:id="@+id/add_group_button"
-            android:layout_below="@+id/group_activity_group_name"
+            android:id="@+id/update_group_button"
+            android:layout_below="@+id/update_group_phone"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:padding="12dp"
-            android:onClick="submit_add_group"/>
+            android:onClick="update_group"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="Delete Group"
+            android:id="@+id/update_group_delete"
+            android:layout_below="@+id/update_group_button"
+            android:layout_centerInParent="true"
+            android:padding="12dp"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:onClick="delete_group"
+            />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
