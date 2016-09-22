@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="15dp"
+        android:id="@+id/officer_card"
         android:layout_margin="8dp">
 
         <RelativeLayout

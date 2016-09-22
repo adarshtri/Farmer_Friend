@@ -25,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.thenewboston.kirusa_test.Fragments.Farmer;
 import com.thenewboston.kirusa_test.Fragments.Officer;
 import com.thenewboston.kirusa_test.R;
 import com.thenewboston.kirusa_test.Sqlite.Officer_Group_DbOperation;
@@ -80,7 +81,7 @@ public class FirstActivity extends AppCompatActivity implements Officer.OnFragme
 
     public void setupViewPager(ViewPager viewPager) {
         mAdapter.addFrag(new Officer(), "Officer");
-        mAdapter.addFrag(new Officer(), "Farmer");
+        mAdapter.addFrag(new Farmer(), "Farmer");
         viewPager.setAdapter(mAdapter);
     }
 

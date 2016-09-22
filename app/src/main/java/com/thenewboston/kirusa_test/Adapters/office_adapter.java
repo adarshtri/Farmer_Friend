@@ -1,6 +1,7 @@
 package com.thenewboston.kirusa_test.Adapters;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +48,12 @@ public class office_adapter extends RecyclerView.Adapter<office_adapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolderOfficer holder, int position) {
             holder.group_name.setText(groups.get(position).getGroup_name()+":"+groups.get(position).getGroup_id());
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
     }
 
     @Override
@@ -57,10 +64,12 @@ public class office_adapter extends RecyclerView.Adapter<office_adapter.ViewHold
 
 
         TextView group_name;
+        CardView cardView;
 
         public ViewHolderOfficer(View itemView) {
             super(itemView);
             group_name = (TextView) itemView.findViewById(R.id.row_layout_group_name_officer);
+            cardView = (CardView) itemView.findViewById(R.id.officer_card);
         }
     }
 }
